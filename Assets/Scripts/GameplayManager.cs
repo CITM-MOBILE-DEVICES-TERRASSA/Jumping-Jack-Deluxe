@@ -14,7 +14,6 @@ public class GameplayManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void ReturnToLobby()
