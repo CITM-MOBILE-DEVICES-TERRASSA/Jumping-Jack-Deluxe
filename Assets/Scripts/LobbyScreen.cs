@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 public class LobbyScreen : MonoBehaviour
 {
     public Text scoreText;
-    public Text minigameNameText;
     private int totalScore = 0;
 
     private void Start()
     {
         UpdateScoreDisplay();
-        minigameNameText.text = "";
     }
 
     public void SelectMinigame(string minigameName)
@@ -31,13 +29,4 @@ public class LobbyScreen : MonoBehaviour
         UpdateScoreDisplay();
     }
 
-    public void OnMinigameHover(string minigameName)
-    {
-        minigameNameText.text = minigameName;
-    }
-
-    public void OnMinigameExit()
-    {
-        minigameNameText.text = "";
-    }
 }
