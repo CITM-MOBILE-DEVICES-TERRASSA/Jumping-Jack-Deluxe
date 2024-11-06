@@ -10,6 +10,7 @@ public class LobbyScreen : MonoBehaviour
 
     private void Start()
     {
+        totalScore = PlayerPrefs.GetInt("totalScore", 0);
         UpdateScoreDisplay();
     }
 
@@ -21,12 +22,6 @@ public class LobbyScreen : MonoBehaviour
     private void UpdateScoreDisplay()
     {
         scoreText.text = "TOTAL SCORE: " + totalScore;
-    }
-
-    public void AddScore(int score)
-    {
-        totalScore += score;
-        UpdateScoreDisplay();
     }
 
 }
