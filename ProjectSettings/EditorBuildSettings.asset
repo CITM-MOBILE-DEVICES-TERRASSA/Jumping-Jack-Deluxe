@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Meta2-Lvl1.unity
     guid: e4f83dfded35ca042b73a38589855113
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: c0ebdfbbf4cc0e34aa046b61a1fb55b8
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 69331c5c08efa34439d3af7dc871cbd7
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: c0a85caff6689fb4bb7e0b4bbc4795ea
   m_configObjects: {}
