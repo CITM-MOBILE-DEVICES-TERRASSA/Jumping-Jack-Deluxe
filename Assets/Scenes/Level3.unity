@@ -3236,7 +3236,6 @@ GameObject:
   - component: {fileID: 1810267339}
   - component: {fileID: 1810267343}
   - component: {fileID: 1810267342}
-  - component: {fileID: 1810267341}
   - component: {fileID: 1810267340}
   m_Layer: 0
   m_Name: Tilemap (1)
@@ -3273,21 +3272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderPrefab: {fileID: 525529963544046827, guid: f1c0610b8a772cf46b8c48841ce1ad69, type: 3}
---- !u!114 &1810267341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810267338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650648a02f4cc0c4b8cc380c930c2a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localStartPoint: {x: 0, y: 0, z: 0}
-  localEndPoint: {x: 3, y: 0, z: 0}
-  duration: 25
 --- !u!483693784 &1810267342
 TilemapRenderer:
   m_ObjectHideFlags: 0

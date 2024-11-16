@@ -198,7 +198,6 @@ GameObject:
   - component: {fileID: 211248067}
   - component: {fileID: 211248070}
   - component: {fileID: 211248069}
-  - component: {fileID: 211248068}
   - component: {fileID: 211248071}
   m_Layer: 0
   m_Name: Tilemap (2)
@@ -222,21 +221,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1076328417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &211248068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211248066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650648a02f4cc0c4b8cc380c930c2a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localStartPoint: {x: 0, y: 0, z: 0}
-  localEndPoint: {x: 10, y: 0, z: 0}
-  duration: 32.5
 --- !u!483693784 &211248069
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -435,7 +419,6 @@ GameObject:
   m_Component:
   - component: {fileID: 965960159}
   - component: {fileID: 965960158}
-  - component: {fileID: 965960160}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -472,21 +455,6 @@ Transform:
   - {fileID: 1266815219}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &965960160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965960157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716ba11f45719b54f8ed55b6e4f7c6b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveDirection: {x: -1, y: 0, z: 0}
-  speed: 5
-  moveDuration: 23.5
 --- !u!1 &1076328416
 GameObject:
   m_ObjectHideFlags: 0
