@@ -3,25 +3,58 @@ using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
-    public static GameplayManager Instance { get; private set; }
-
-    int currentScore = 0;
+    #region Singleton
+    private static GameplayManager _instance;
+    public static GameplayManager Instance => _instance;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (_instance != null)
         {
             Destroy(gameObject);
-            return;
+        }
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
-        Instance = this;
     }
+
+    #endregion
+
+    int currentScore = 0;
 
     public void ReturnToLobby()
     {
         SceneManager.LoadScene("Lobby");
         int totalScore = PlayerPrefs.GetInt("totalScore", 0);
         PlayerPrefs.SetInt("totalScore", totalScore + currentScore);
+    }
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+    }
+
+    public void LoadMetaLobby()
+    {
+        SceneManager.LoadScene("Meta1");
+    }
+
+    public void LoadNextLevel()
+    {
+        if (SceneManager.GetActiveScene().name == "Testing")
+        {
+            SceneManager.LoadScene("Level1");
+        }
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            SceneManager.LoadScene("Level2");
+        }
+        if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            SceneManager.LoadScene("Level3");
+        }
     }
 }
