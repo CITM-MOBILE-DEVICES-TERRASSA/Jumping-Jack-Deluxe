@@ -13,6 +13,7 @@ public class HandleVictory : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")){
+            Debug.Log("si");
             victoryScreen.SetActive(true);
             if(SceneManager.GetActiveScene().name != "Level3")
             {
