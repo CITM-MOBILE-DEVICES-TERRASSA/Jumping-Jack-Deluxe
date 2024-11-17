@@ -70,8 +70,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded || jumpCounter < 2)
         {
+            Vector2 velocity = rb.velocity;
+            velocity.y = 0; 
+            rb.velocity = velocity; 
+
             jumpCounter++;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
             isGrounded = false;
         }
     }
