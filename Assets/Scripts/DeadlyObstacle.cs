@@ -7,8 +7,8 @@ public class DeadlyObstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Lobby"); // Para ir al lobby
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); Esto para reiniciar el nivel actual
         }
     }
 }
