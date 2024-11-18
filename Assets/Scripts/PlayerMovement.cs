@@ -70,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool HasBeenIdle()
     {
+        if (Mathf.Abs(rb.velocity.y) > 0.1f)
+        {
+            return false;
+        }
+
         if (positionHistory.Count < positionCheckFrames)
             return false;
 
