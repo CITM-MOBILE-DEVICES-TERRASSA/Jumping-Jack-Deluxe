@@ -34,7 +34,8 @@ public class GameplayManager : MonoBehaviour
 
     public void ReloadCurrentScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ResetTimer();
     }
 
     public void LoadMetaLobby()
@@ -55,6 +56,16 @@ public class GameplayManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level2")
         {
             SceneManager.LoadScene("Level3");
+        }
+        ResetTimer();
+    }
+
+    private void ResetTimer()
+    {
+        Timer timer = FindObjectOfType<Timer>();
+        if (timer != null)
+        {
+            timer.ResetTimer();
         }
     }
 }
