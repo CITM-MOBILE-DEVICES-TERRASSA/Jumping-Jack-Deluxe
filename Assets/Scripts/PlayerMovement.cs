@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     private Queue<Vector2> positionHistory = new Queue<Vector2>();
-    public int positionCheckFrames = 20;
-    public float positionTolerance = 0.5f; // Allowed position variation before considering it idle
+    public int positionCheckFrames = 5;
+    public float positionTolerance = 0.1f; // Allowed position variation before considering it idle
 
     private float idleTimer = 0.0f;
     public float idleDuration = 3f;         // Tiempo que debe estar quieto para GameOver
@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log($"Velocity: {rb.velocity}, Position: {rb.position}, IdleTimer: {idleTimer}");
         positionHistory.Enqueue(rb.position);
 
         if (positionHistory.Count > positionCheckFrames)
@@ -92,6 +93,12 @@ public class PlayerMovement : MonoBehaviour
     public void ChangeDirection()
     {
         direction = -direction;
+
+        positionHistory.Clear();
+
+        positionHistory.Enqueue(rb.position);
+
+        idleTimer = 0f;
     }
 
     public void Jump()
