@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
             if (idleTimer >= idleDuration)
             {
                 Debug.Log("DEAD ALREADY");
-                SceneManager.LoadScene("GameOver");
+                GameplayManager.Instance.gameOverScreen.SetActive(true);
             }
         }
         else

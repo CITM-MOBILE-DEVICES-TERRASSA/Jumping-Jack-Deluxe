@@ -23,6 +23,8 @@ public class GameplayManager : MonoBehaviour
 
     #endregion
 
+    public GameObject gameOverScreen;
+
     int currentScore = 0;
 
     public void ReturnToLobby()

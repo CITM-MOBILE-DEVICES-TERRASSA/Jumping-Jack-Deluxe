@@ -7,9 +7,7 @@ public class DeadlyObstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Guarda el nombre del nivel antes de cargar la escena de GameOver
-            PlayerPrefs.SetString("lastLevel", SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene("GameOver");
+            GameplayManager.Instance.gameOverScreen.SetActive(true);
         }
     }
 }

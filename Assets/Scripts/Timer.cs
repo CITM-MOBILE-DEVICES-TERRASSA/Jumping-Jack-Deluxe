@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     private string timeTextObjectName = "Time"; // Nombre del objeto del texto
     private Text timeText;
     public float totalTime = 90;
+    public float totalTimeReset = 90;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class Timer : MonoBehaviour
 
     public void ResetTimer()
     {
-        totalTime = 90;
+        totalTime = totalTimeReset;
         if (timeText != null)
         {
             timeText.text = totalTime.ToString("F2");
