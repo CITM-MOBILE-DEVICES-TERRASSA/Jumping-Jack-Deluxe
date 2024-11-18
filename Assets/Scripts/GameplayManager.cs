@@ -44,7 +44,7 @@ public class GameplayManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        if (SceneManager.GetActiveScene().name == "Testing")
+        if (SceneManager.GetActiveScene().name == "Level1")
         {
             SceneManager.LoadScene("Level1");
         }
