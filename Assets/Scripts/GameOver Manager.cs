@@ -9,6 +9,7 @@ public class GameOverManager : MonoBehaviour
         if (!string.IsNullOrEmpty(lastLevel))
         {
             SceneManager.LoadScene(lastLevel); // Carga el nivel 
+            ResetTimer();
         }
         else
         {
@@ -19,5 +20,13 @@ public class GameOverManager : MonoBehaviour
     public void GoToLobby()
     {
         SceneManager.LoadScene("Lobby");
+    }
+    private void ResetTimer()
+    {
+        Timer timer = FindObjectOfType<Timer>();
+        if (timer != null)
+        {
+            timer.ResetTimer();
+        }
     }
 }
