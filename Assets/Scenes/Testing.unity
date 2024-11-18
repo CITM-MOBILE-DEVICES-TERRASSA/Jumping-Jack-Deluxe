@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.4
+  m_fontSize: 18.9
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1819,7 +1819,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.4
+  m_fontSize: 22.75
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2560,7 +2560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f7e993efec8ec4ea692c5829b8a3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 400
+  totalTime: 90
 --- !u!1 &560686492
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,7 +4668,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 81.2
+  m_fontSize: 102.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6780,7 +6780,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
+  m_fontSize: 34.9
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10299,10 +10299,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 414314599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8176667, y: 0.9037778}
-  m_AnchorMax: {x: 0.99000007, y: 0.97314817}
-  m_AnchoredPosition: {x: -2118, y: 0.5}
-  m_SizeDelta: {x: -0.05999756, y: 7.48999}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172, y: -61}
+  m_SizeDelta: {x: 172.94, y: 50.48999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944748700
 MonoBehaviour:
@@ -10326,11 +10326,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 83
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 96
+    m_MinSize: 0
+    m_MaxSize: 100
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -10643,8 +10643,8 @@ MonoBehaviour:
   slideDuration: 0.6
   slideSpeed: 8
   positionCheckFrames: 20
-  positionTolerance: 0.1
-  idleDuration: 0.5
+  positionTolerance: 0.01
+  idleDuration: 0.3
   playerCollider: {fileID: 2024214577}
   slideCollider: {fileID: 2024214581}
   spriteTransform: {fileID: 2024214579}

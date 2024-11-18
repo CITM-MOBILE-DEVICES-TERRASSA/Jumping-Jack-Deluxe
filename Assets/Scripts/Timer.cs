@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     private string timeTextObjectName = "Time"; // Nombre del objeto del texto
     private Text timeText;
-    public float totalTime = 400;
+    public float totalTime = 90;
 
     private void Start()
     {
@@ -29,15 +29,15 @@ public class Timer : MonoBehaviour
         totalTime -= Time.deltaTime;
 
         if (totalTime < 0) {totalTime = 0;}
-        timeText.text = totalTime.ToString("F3"); // 2 decimales
+        timeText.text = totalTime.ToString("F2"); // 2 decimales
     }
 
     public void ResetTimer()
     {
-        totalTime = 400;
+        totalTime = 90;
         if (timeText != null)
         {
-            timeText.text = totalTime.ToString("F3");
+            timeText.text = totalTime.ToString("F2");
         }
     }
 
