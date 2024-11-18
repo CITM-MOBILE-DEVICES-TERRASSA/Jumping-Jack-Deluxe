@@ -10548,7 +10548,7 @@ MonoBehaviour:
   jumpForce: 7
   slideDuration: 0.6
   slideSpeed: 8
-  positionCheckFrames: 5
+  positionCheckFrames: 20
   positionTolerance: 0.1
   idleDuration: 0.5
   playerCollider: {fileID: 2024214577}
