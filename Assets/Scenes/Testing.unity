@@ -10548,8 +10548,9 @@ MonoBehaviour:
   jumpForce: 7
   slideDuration: 0.6
   slideSpeed: 8
-  velocityThreshold: 0.01
-  idleDuration: 0.1
+  positionCheckFrames: 5
+  positionTolerance: 0.1
+  idleDuration: 0.5
   playerCollider: {fileID: 2024214577}
   slideCollider: {fileID: 2024214581}
   spriteTransform: {fileID: 2024214579}

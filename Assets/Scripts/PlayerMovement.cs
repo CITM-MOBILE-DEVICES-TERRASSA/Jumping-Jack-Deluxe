@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public float slideDuration = 0.5f;
     public float slideSpeed = 5f;               // Por si hay que reducir la velocidad al deslizarse
 
-    public float velocityThreshold = 0.01f;     // Umbral para considerar velocidad como cero
-    public float idleDuration = 0.1f;           // Tiempo que debe estar quieto para GameOver
+
+    private Queue<Vector2> positionHistory = new Queue<Vector2>();
+    public int positionCheckFrames = 20;
+    public float positionTolerance = 0.5f; // Allowed position variation before considering it idle
+
+    private float idleTimer = 0.0f;
+    public float idleDuration = 3f;         // Tiempo que debe estar quieto para GameOver
 
 
     public Collider2D playerCollider;
@@ -24,8 +30,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = false;
     private bool isSliding = false;
     private int jumpCounter = 0;
-    private float idleTimer = 0f;               // Contador para el tiempo en reposo
-
 
     void Start()
     {
@@ -35,23 +39,25 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Comprueba si la velocidad está por debajo del umbral
-        bool isIdle = Mathf.Abs(rb.velocity.x) < velocityThreshold && Mathf.Abs(rb.velocity.y) < velocityThreshold;
+        positionHistory.Enqueue(rb.position);
 
-        // Si está quieto, aumenta el contador
-        if (isIdle)
+        if (positionHistory.Count > positionCheckFrames)
+        {
+            positionHistory.Dequeue();
+        }
+
+        if (HasBeenIdle())
         {
             idleTimer += Time.deltaTime;
 
-            // Si el contador supera el tiempo permitido, cambia a GameOver
             if (idleTimer >= idleDuration)
             {
+                Debug.Log("DEAD ALREADY");
                 SceneManager.LoadScene("GameOver");
             }
         }
         else
         {
-            // Reinicia el contador si se mueve
             idleTimer = 0f;
         }
 
@@ -61,6 +67,23 @@ public class PlayerMovement : MonoBehaviour
         }
         else rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
     }
+
+    private bool HasBeenIdle()
+    {
+        if (positionHistory.Count < positionCheckFrames)
+            return false;
+
+        Vector2 firstPosition = positionHistory.Peek();
+        foreach (Vector2 position in positionHistory)
+        {
+            if (Vector2.Distance(firstPosition, position) > positionTolerance)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void ChangeDirection()
     {
         direction = -direction;
