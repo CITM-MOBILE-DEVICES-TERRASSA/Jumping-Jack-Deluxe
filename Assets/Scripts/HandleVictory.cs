@@ -10,12 +10,31 @@ public class HandleVictory : MonoBehaviour
 
     [SerializeField]
     GameObject nextLevelButton;
+
+    // Referencia al script Score
+    private Score scoreScript;
+
+    private void Start()
+    {
+        // Obtén la referencia al script Score
+        scoreScript = FindObjectOfType<Score>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")){
+        if (collision.CompareTag("Player"))
+        {
             Debug.Log("si");
             victoryScreen.SetActive(true);
-            if(SceneManager.GetActiveScene().name != "Level3")
+
+            // Llama a AddScoreToTotal para sumar la puntuación del nivel al total en el lobby
+            if (scoreScript != null)
+            {
+                scoreScript.AddScoreToTotal();
+            }
+
+            // Muestra el botón para el siguiente nivel si no es el último nivel
+            if (SceneManager.GetActiveScene().name != "Level3")
             {
                 nextLevelButton.SetActive(true);
             }

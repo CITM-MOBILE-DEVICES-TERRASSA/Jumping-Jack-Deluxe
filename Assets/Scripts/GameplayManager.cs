@@ -18,7 +18,6 @@ public class GameplayManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
     }
 
     #endregion
@@ -47,19 +46,25 @@ public class GameplayManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        if (SceneManager.GetActiveScene().name == "Level1")
+        // Guardamos el puntaje acumulado del nivel antes de cambiar de escena
+        Score score = FindObjectOfType<Score>();
+        if (score != null)
         {
-            SceneManager.LoadScene("Level1");
+            score.AddScoreToTotal();  // Añadimos la puntuación del nivel al total
         }
+
+        // Reiniciamos el temporizador para el siguiente nivel
+        ResetTimer();
+
+        // Cargar el siguiente nivel
         if (SceneManager.GetActiveScene().name == "Level1")
         {
             SceneManager.LoadScene("Level2");
         }
-        if (SceneManager.GetActiveScene().name == "Level2")
+        else if (SceneManager.GetActiveScene().name == "Level2")
         {
             SceneManager.LoadScene("Level3");
         }
-        ResetTimer();
     }
 
     private void ResetTimer()
@@ -67,7 +72,7 @@ public class GameplayManager : MonoBehaviour
         Timer timer = FindObjectOfType<Timer>();
         if (timer != null)
         {
-            timer.ResetTimer();
+            timer.ResetTimer(); // Reinicia el temporizador
         }
     }
 }

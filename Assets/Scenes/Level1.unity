@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.4
+  m_fontSize: 17.7
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1952,7 +1952,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.2
+  m_fontSize: 21.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2861,6 +2861,7 @@ GameObject:
   - component: {fileID: 557873843}
   - component: {fileID: 557873844}
   - component: {fileID: 557873845}
+  - component: {fileID: 557873846}
   m_Layer: 0
   m_Name: GameplayManager
   m_TagString: Untagged
@@ -2910,6 +2911,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalTime: 120
   totalTimeReset: 120
+--- !u!114 &557873846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557873842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e6d4f7cc32af74ea1c070ea290e61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelScore: 0
 --- !u!1 &560686492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5214,7 +5228,7 @@ GameObject:
   - component: {fileID: 930649243}
   - component: {fileID: 930649242}
   m_Layer: 5
-  m_Name: Puntuacion
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5286,7 +5300,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 79.35
+  m_fontSize: 73.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7398,7 +7412,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.15
+  m_fontSize: 32.7
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
