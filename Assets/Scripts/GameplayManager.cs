@@ -16,7 +16,7 @@ public class GameplayManager : MonoBehaviour
         else
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -74,5 +74,15 @@ public class GameplayManager : MonoBehaviour
         {
             timer.ResetTimer(); // Reinicia el temporizador
         }
+    }
+
+    public void PauseTime()
+    {
+        Time.timeScale = 0.0f;
+    }
+
+    public void UnpauseTime()
+    {
+        Time.timeScale = 1.0f;
     }
 }
