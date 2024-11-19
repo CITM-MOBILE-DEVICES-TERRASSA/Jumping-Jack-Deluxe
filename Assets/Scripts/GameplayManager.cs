@@ -31,17 +31,20 @@ public class GameplayManager : MonoBehaviour
         SceneManager.LoadScene("Lobby");
         int totalScore = PlayerPrefs.GetInt("totalScore", 0);
         PlayerPrefs.SetInt("totalScore", totalScore + currentScore);
+        Time.timeScale = 1.0f;
     }
 
     public void ReloadCurrentScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
         ResetTimer();
     }
 
     public void LoadMetaLobby()
     {
         SceneManager.LoadScene("Meta1");
+        Time.timeScale = 1.0f;
     }
 
     public void LoadNextLevel()
@@ -60,10 +63,12 @@ public class GameplayManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level1")
         {
             SceneManager.LoadScene("Level2");
+            Time.timeScale = 1.0f;
         }
         else if (SceneManager.GetActiveScene().name == "Level2")
         {
             SceneManager.LoadScene("Level3");
+            Time.timeScale = 1.0f;
         }
     }
 

@@ -26,6 +26,7 @@ public class HandleVictory : MonoBehaviour
         {
             Debug.Log("si");
             victoryScreen.SetActive(true);
+            GameplayManager.Instance.PauseTime();
 
             // Llama a AddScoreToTotal para sumar la puntuación del nivel al total en el lobby
             if (scoreScript != null)
