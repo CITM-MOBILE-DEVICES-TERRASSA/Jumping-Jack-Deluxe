@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isSliding = false;
     private int jumpCounter = 0;
 
+    [SerializeField] private ParticleSystem particulas;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log($"Velocity: {rb.velocity}, Position: {rb.position}, IdleTimer: {idleTimer}");
         positionHistory.Enqueue(rb.position);
+        
 
         if (positionHistory.Count > positionCheckFrames)
         {
@@ -65,8 +68,16 @@ public class PlayerMovement : MonoBehaviour
         if (!isSliding)
         {
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+            if (isGrounded){
+                particulas.Play();
+            }
         }
-        else rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
+        else {
+            rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
+            if (isGrounded){
+                particulas.Play();
+            }
+        }
     }
 
     private bool HasBeenIdle()
@@ -111,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
             jumpCounter++;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            particulas.Play();
 
             isGrounded = false;
         }
