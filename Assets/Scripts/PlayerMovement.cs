@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private int jumpCounter = 0;
 
     [SerializeField] private ParticleSystem dash;
+    [SerializeField] private ParticleSystem run;
 
     void Start()
     {
@@ -67,11 +68,19 @@ public class PlayerMovement : MonoBehaviour
         if (!isSliding)
         {
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+            if (isGrounded)
+            {
+                run.Play();
+            }
         }
         else
         {
             
             rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
+            if (isGrounded)
+            {
+                run.Play();
+            }
         }
     }
 
@@ -93,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
                 return false;
             }
         }
-        return true;
+        return false;
     }
 
     public void ChangeDirection()
@@ -111,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded || jumpCounter < 2)
         {
+            run.Play();
             Vector2 velocity = rb.velocity;
             velocity.y = 0; 
             rb.velocity = velocity; 
