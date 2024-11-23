@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isSliding = false;
     private int jumpCounter = 0;
 
+    [SerializeField] private ParticleSystem dash;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -66,7 +68,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         }
-        else rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
+        else
+        {
+            
+            rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
+        }
     }
 
     private bool HasBeenIdle()
@@ -120,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGrounded && !isSliding)
         {
+            
             StartCoroutine(SlideCoroutine());
         }
     }
@@ -131,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
         slideCollider.enabled = true;
 
         spriteTransform.localScale = new Vector3(1f, 0.5f, 1f);     // Reducir visualmente el sprite
-        
+        dash.Play();
         yield return new WaitForSeconds(slideDuration);
 
         playerCollider.enabled = true;
