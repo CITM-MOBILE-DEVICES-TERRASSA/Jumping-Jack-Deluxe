@@ -102,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
                 return false;
             }
         }
+        // Cambiar este return de false a true si quereis que el player se muera al estar quieto, y volved a ponedlo en false si quereis que no se muera
         return false;
     }
 

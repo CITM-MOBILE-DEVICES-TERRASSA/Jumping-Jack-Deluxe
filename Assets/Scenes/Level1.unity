@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5.15
+  m_fontSize: 9.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1952,7 +1952,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.15
+  m_fontSize: 11.4
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3078,7 +3078,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -8070,11 +8070,10 @@ Transform:
   m_GameObject: {fileID: 574666915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.49, y: 2.74, z: 0}
+  m_LocalPosition: {x: -22.73, y: 2.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1588388502}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578931872
@@ -10323,7 +10322,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.45
+  m_fontSize: 45.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -12477,7 +12476,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -17267,7 +17266,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.6
+  m_fontSize: 17.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -18104,7 +18103,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -23369,11 +23368,11 @@ Transform:
   m_GameObject: {fileID: 1588388501}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.09389546, w: 0.9955821}
-  m_LocalPosition: {x: -1.77, y: 0.35, z: 0}
-  m_LocalScale: {x: 3.0554216, y: 1.5021, z: 1.5021}
+  m_LocalPosition: {x: -24.060001, y: 3.09, z: 0}
+  m_LocalScale: {x: 3.0554216, y: 1.5020999, z: 1.5021}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 574666917}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.776}
 --- !u!114 &1588388503
 MonoBehaviour:
@@ -25391,7 +25390,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -31889,4 +31888,5 @@ SceneRoots:
   - {fileID: 913373419}
   - {fileID: 927304467}
   - {fileID: 557873843}
+  - {fileID: 1588388502}
   - {fileID: 574666917}
