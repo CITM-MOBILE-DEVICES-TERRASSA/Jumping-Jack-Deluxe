@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"Velocity: {rb.velocity}, Position: {rb.position}, IdleTimer: {idleTimer}");
+        //Debug.Log($"Velocity: {rb.velocity}, Position: {rb.position}, IdleTimer: {idleTimer}");
         positionHistory.Enqueue(rb.position);
 
         if (positionHistory.Count > positionCheckFrames)
@@ -68,19 +68,10 @@ public class PlayerMovement : MonoBehaviour
         if (!isSliding)
         {
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
-            if (isGrounded)
-            {
-                run.Play();
-            }
         }
         else
         {
-            
             rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
-            if (isGrounded)
-            {
-                run.Play();
-            }
         }
     }
 
@@ -163,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            run.Play();
             isGrounded = true;
             jumpCounter = 0;
         }

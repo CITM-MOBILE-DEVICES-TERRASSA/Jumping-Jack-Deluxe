@@ -19,12 +19,17 @@ public class PushableObject : MonoBehaviour
             // Detecta la fuerza que aplica el jugador al objeto
             Vector2 pushDirection = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
             rb.AddForce(pushDirection * 1f); // Ajusta la fuerza de empuje
+            Debug.Log(rb.velocity.x);
             if (rb.velocity.x > 0)
             {
+                Debug.Log("Particulas a la derecha");
+                if (!derecha.isPlaying)
                 derecha.Play();
             }
             else if (rb.velocity.x < 0)
             {
+                Debug.Log("Particulas a la izquierda");
+                if (!izquierda.isPlaying)
                 izquierda.Play();
             }
         }
