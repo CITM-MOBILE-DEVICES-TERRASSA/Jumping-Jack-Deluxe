@@ -9,20 +9,18 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 10f;
     public float slideDuration = 0.5f;
-    public float slideSpeed = 5f;               // Por si hay que reducir la velocidad al deslizarse
-
+    public float slideSpeed = 5f; // Por si hay que reducir la velocidad al deslizarse
 
     private Queue<Vector2> positionHistory = new Queue<Vector2>();
     public int positionCheckFrames = 5;
     public float positionTolerance = 0.1f; // Allowed position variation before considering it idle
 
     private float idleTimer = 0.0f;
-    public float idleDuration = 3f;         // Tiempo que debe estar quieto para GameOver
-
+    public float idleDuration = 3f; // Tiempo que debe estar quieto para GameOver
 
     public Collider2D playerCollider;
     public Collider2D slideCollider;
-    public Transform spriteTransform;           // Para hacer visual el slide
+    public Transform spriteTransform; // Para hacer visual el slide
 
     private Vector2 direction = Vector2.right;
     private Rigidbody2D rb;
@@ -34,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem dash;
     [SerializeField] private ParticleSystem run;
 
+    // Sonidos asignables desde el editor
+    public AudioSource runSound;
+    public AudioSource jumpSound;
+    public AudioSource slideSound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log($"Velocity: {rb.velocity}, Position: {rb.position}, IdleTimer: {idleTimer}");
         positionHistory.Enqueue(rb.position);
 
         if (positionHistory.Count > positionCheckFrames)
@@ -56,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (idleTimer >= idleDuration)
             {
-                //Debug.Log("DEAD ALREADY");
                 GameplayManager.Instance.gameOverScreen.SetActive(true);
             }
         }
@@ -76,6 +77,12 @@ public class PlayerMovement : MonoBehaviour
 
         Animator animator = GetComponent<Animator>();
         animator.SetBool("IsGrounded", isGrounded);
+
+        // Reproducir el sonido de correr si está corriendo en el suelo
+        if (isGrounded && !runSound.isPlaying && rb.velocity.x != 0)
+        {
+            runSound.Play();
+        }
     }
 
     private bool HasBeenIdle()
@@ -96,7 +103,6 @@ public class PlayerMovement : MonoBehaviour
                 return false;
             }
         }
-        // Cambiar este return de false a true si quereis que el player se muera al estar quieto, y volved a ponedlo en false si quereis que no se muera
         return false;
     }
 
@@ -109,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
         spriteTransform.localScale = localScale;
 
         positionHistory.Clear();
-
         positionHistory.Enqueue(rb.position);
 
         idleTimer = 0f;
@@ -121,8 +126,8 @@ public class PlayerMovement : MonoBehaviour
         {
             run.Play();
             Vector2 velocity = rb.velocity;
-            velocity.y = 0; 
-            rb.velocity = velocity; 
+            velocity.y = 0;
+            rb.velocity = velocity;
 
             jumpCounter++;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -131,14 +136,19 @@ public class PlayerMovement : MonoBehaviour
 
             Animator animator = GetComponent<Animator>();
             animator.SetTrigger("Jump");
+
+            // Reproducir el sonido de salto
+            jumpSound.Play();
         }
     }
 
     public void Slide()
     {
-        if(isGrounded && !isSliding)
+        if (isGrounded && !isSliding)
         {
-            
+            // Reproducir el sonido de deslizarse
+            slideSound.Play();
+
             StartCoroutine(SlideCoroutine());
         }
     }
@@ -149,14 +159,14 @@ public class PlayerMovement : MonoBehaviour
         playerCollider.enabled = false;
         slideCollider.enabled = true;
 
-        spriteTransform.localScale = new Vector3(1f, 0.5f, 1f);     // Reducir visualmente el sprite
+        spriteTransform.localScale = new Vector3(1f, 0.5f, 1f); // Reducir visualmente el sprite
         dash.Play();
         yield return new WaitForSeconds(slideDuration);
 
         playerCollider.enabled = true;
         slideCollider.enabled = false;
 
-        spriteTransform.localScale = Vector3.one;   // Restaurar el sprite
+        spriteTransform.localScale = Vector3.one; // Restaurar el sprite
         isSliding = false;
     }
 
