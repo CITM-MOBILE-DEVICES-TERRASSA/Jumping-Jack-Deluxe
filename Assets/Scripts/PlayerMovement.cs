@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
             if (isGrounded)
             {
-                //sound.RunSound();
+                sound.RunSound();
             }
         }
         else
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
             if (isGrounded)
             {
-                //sound.RunSound();
+                sound.RunSound();
             }
         }
             
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
                 return false;
             }
         }
-        //sound.ElectricDeadSound();
+        sound.ElectricDeadSound();
         // Cambiar este return de false a true si quereis que el player se muera al estar quieto, y volved a ponedlo en false si quereis que no se muera
         return true;
     }
@@ -126,14 +126,14 @@ public class PlayerMovement : MonoBehaviour
         positionHistory.Enqueue(rb.position);
 
         idleTimer = 0f;
-        //sound.CambioDirSound();
+        sound.CambioDirSound();
     }
 
     public void Jump()
     {
         if (isGrounded || jumpCounter < 2)
         {
-            //sound.JumpSound();
+            sound.JumpSound();
             run.Play();
             Vector2 velocity = rb.velocity;
             velocity.y = 0; 
@@ -153,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGrounded && !isSliding)
         {
-            //sound.DashSound();
+            sound.DashSound();
             StartCoroutine(SlideCoroutine());
         }
     }
@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            //sound.TocarSupSound();
+            sound.TocarSupSound();
             run.Play();
             isGrounded = true;
             jumpCounter = 0;
