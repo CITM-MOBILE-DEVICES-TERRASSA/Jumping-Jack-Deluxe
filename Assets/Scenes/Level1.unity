@@ -10465,7 +10465,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.45
+  m_fontSize: 98.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14413,11 +14413,11 @@ Transform:
   m_GameObject: {fileID: 1296833645}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 299.15, y: -1.5700002, z: 0}
+  m_LocalPosition: {x: 249.82999, y: -2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024214579}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1296833648
 MonoBehaviour:
@@ -23461,10 +23461,7 @@ PrefabInstance:
       objectReference: {fileID: 949300576}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5122751235266106341, guid: ef421c9a968ad2f4eb2483d34d3d6d49, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1296833647}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef421c9a968ad2f4eb2483d34d3d6d49, type: 3}
 --- !u!1660057539 &9223372036854775807
@@ -23475,6 +23472,7 @@ SceneRoots:
   - {fileID: 424994180}
   - {fileID: 414314599}
   - {fileID: 187170935}
+  - {fileID: 1296833647}
   - {fileID: 8701087645461891188}
   - {fileID: 1191902519}
   - {fileID: 1068843468}
