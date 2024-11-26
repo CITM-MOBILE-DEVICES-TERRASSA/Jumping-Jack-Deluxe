@@ -7,8 +7,14 @@ public class GameplayManager : MonoBehaviour
     private static GameplayManager _instance;
     public static GameplayManager Instance => _instance;
 
+    //private SoundManager sound;
+
+    
+
     private void Awake()
     {
+        
+
         if (_instance != null)
         {
             Destroy(gameObject);
@@ -25,7 +31,10 @@ public class GameplayManager : MonoBehaviour
     public GameObject gameOverScreen;
 
     int currentScore = 0;
-
+     void Start(){
+        //sound = FindObjectOfType<SoundManager>();
+        //sound.MainMenuSong();
+    }
     public void ReturnToLobby()
     {
         SceneManager.LoadScene("Lobby");
@@ -53,7 +62,7 @@ public class GameplayManager : MonoBehaviour
         Score score = FindObjectOfType<Score>();
         if (score != null)
         {
-            score.AddScoreToTotal();  // Añadimos la puntuación del nivel al total
+            score.AddScoreToTotal();  // Aï¿½adimos la puntuaciï¿½n del nivel al total
         }
 
         // Reiniciamos el temporizador para el siguiente nivel
