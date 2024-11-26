@@ -6,6 +6,8 @@ public class PushableObject : MonoBehaviour
 
     [SerializeField] private ParticleSystem derecha;
     [SerializeField] private ParticleSystem izquierda;
+    public AudioSource slideSound;
+
 
     private void Start()
     {
@@ -14,23 +16,34 @@ public class PushableObject : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+
         if (collision.gameObject.CompareTag("Player"))
         {
+
             // Detecta la fuerza que aplica el jugador al objeto
             Vector2 pushDirection = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
             rb.AddForce(pushDirection * 1f); // Ajusta la fuerza de empuje
-            Debug.Log(rb.velocity.x);
+            //Debug.Log(rb.velocity.x);
             if (rb.velocity.x > 0)
             {
-                Debug.Log("Particulas a la derecha");
+                if (!slideSound.isPlaying)
+                    slideSound.Play();
+
+                //Debug.Log("Particulas a la derecha");
                 if (!derecha.isPlaying)
                 derecha.Play();
+
             }
             else if (rb.velocity.x < 0)
             {
-                Debug.Log("Particulas a la izquierda");
+                //Debug.Log("Particulas a la izquierda");
+                if (!slideSound.isPlaying)
+                    slideSound.Play();
+
                 if (!izquierda.isPlaying)
                 izquierda.Play();
+
+
             }
         }
     }
