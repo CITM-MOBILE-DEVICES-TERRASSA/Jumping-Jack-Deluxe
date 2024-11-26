@@ -7,15 +7,19 @@ public class PushableObject : MonoBehaviour
     [SerializeField] private ParticleSystem derecha;
     [SerializeField] private ParticleSystem izquierda;
 
+    private SoundManager sound;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sound = FindObjectOfType<SoundManager>();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            sound.PushObjectSound();
             // Detecta la fuerza que aplica el jugador al objeto
             Vector2 pushDirection = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
             rb.AddForce(pushDirection * 1f); // Ajusta la fuerza de empuje
