@@ -531,60 +531,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1832788189
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1832788191}
-  - component: {fileID: 1832788190}
-  m_Layer: 0
-  m_Name: Sound manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1832788190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832788189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786f42f6173ee5b4997ffc8f44179c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PushObject: {fileID: 0}
-  electric_dead: {fileID: 0}
-  tocar_sup: {fileID: 0}
-  cambio_dir: {fileID: 0}
-  dash: {fileID: 0}
-  salto: {fileID: 0}
-  run: {fileID: 0}
-  Gameover: {fileID: 0}
-  Gameplay: {fileID: 0}
-  Menu: {fileID: 0}
---- !u!4 &1832788191
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832788189}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.743961, y: -2.272255, z: -0.3258698}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -593,4 +539,3 @@ SceneRoots:
   - {fileID: 1799537160}
   - {fileID: 964277311}
   - {fileID: 759452394}
-  - {fileID: 1832788191}

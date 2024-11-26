@@ -34,13 +34,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem dash;
     [SerializeField] private ParticleSystem run;
 
-    private SoundManager sound;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
-        sound = FindObjectOfType<SoundManager>();
     }
 
     void Update()
@@ -71,18 +68,10 @@ public class PlayerMovement : MonoBehaviour
         if (!isSliding)
         {
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
-            if (isGrounded)
-            {
-                sound.RunSound();
-            }
         }
         else
         {
             rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
-            if (isGrounded)
-            {
-                sound.RunSound();
-            }
         }
     }
 
@@ -104,9 +93,8 @@ public class PlayerMovement : MonoBehaviour
                 return false;
             }
         }
-        sound.ElectricDeadSound();
         // Cambiar este return de false a true si quereis que el player se muera al estar quieto, y volved a ponedlo en false si quereis que no se muera
-        return true;
+        return false;
     }
 
     public void ChangeDirection()
@@ -118,14 +106,12 @@ public class PlayerMovement : MonoBehaviour
         positionHistory.Enqueue(rb.position);
 
         idleTimer = 0f;
-        sound.CambioDirSound();
     }
 
     public void Jump()
     {
         if (isGrounded || jumpCounter < 2)
         {
-            sound.JumpSound();
             run.Play();
             Vector2 velocity = rb.velocity;
             velocity.y = 0; 
@@ -142,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGrounded && !isSliding)
         {
-            sound.DashSound();
+            
             StartCoroutine(SlideCoroutine());
         }
     }
@@ -168,7 +154,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            sound.TocarSupSound();
             run.Play();
             isGrounded = true;
             jumpCounter = 0;
