@@ -73,6 +73,9 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(direction.x * slideSpeed, rb.velocity.y);
         }
+            
+        Animator animator = GetComponent<Animator>();
+        animator.SetBool("IsGrounded", isGrounded);
     }
 
     private bool HasBeenIdle()
@@ -101,6 +104,11 @@ public class PlayerMovement : MonoBehaviour
     {
         direction = -direction;
 
+        //sprite flip
+        Vector3 localScale = spriteTransform.localScale;
+        localScale.x *= -1;
+        spriteTransform.localScale = localScale;
+
         positionHistory.Clear();
 
         positionHistory.Enqueue(rb.position);
@@ -121,6 +129,9 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
             isGrounded = false;
+                        
+            Animator animator = GetComponent<Animator>();
+            animator.SetTrigger("Jump");
         }
     }
 
