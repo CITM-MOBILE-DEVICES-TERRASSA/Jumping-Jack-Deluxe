@@ -10465,7 +10465,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.7
+  m_fontSize: 55.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23367,6 +23367,26 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 456431653234189262, guid: ef421c9a968ad2f4eb2483d34d3d6d49, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456431653234189262, guid: ef421c9a968ad2f4eb2483d34d3d6d49, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456431653234189262, guid: ef421c9a968ad2f4eb2483d34d3d6d49, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456431653234189262, guid: ef421c9a968ad2f4eb2483d34d3d6d49, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456431653234189262, guid: ef421c9a968ad2f4eb2483d34d3d6d49, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6758e475704a0c44590f14fd610a9aeb, type: 2}
     - target: {fileID: 713284201025376032, guid: ef421c9a968ad2f4eb2483d34d3d6d49, type: 3}
       propertyPath: m_Volume
       value: 0.5
