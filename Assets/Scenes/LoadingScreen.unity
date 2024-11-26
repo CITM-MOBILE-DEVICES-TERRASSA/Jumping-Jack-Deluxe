@@ -560,16 +560,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786f42f6173ee5b4997ffc8f44179c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PushObject: {fileID: 8300000, guid: f4344130e9297bb43a3fe36150e5bad1, type: 3}
+  PushObject: {fileID: 0}
   electric_dead: {fileID: 0}
   tocar_sup: {fileID: 0}
-  cambio_dir: {fileID: 8300000, guid: b83700882dbf0f34ba7770a82ee614b5, type: 3}
-  dash: {fileID: 8300000, guid: 2494eb42d7262034181965382547272b, type: 3}
-  salto: {fileID: 8300000, guid: ae8a2a54cc495a24aa71854b284ee298, type: 3}
-  run: {fileID: 8300000, guid: 00f301d083a95254ea96eacef5739aa0, type: 3}
-  Gameover: {fileID: 8300000, guid: a6e12df4fb86bfd4a80abca99bf35778, type: 3}
-  Gameplay: {fileID: 8300000, guid: a40e54c4d4b01d745a970dd11f5e2945, type: 3}
-  Menu: {fileID: 8300000, guid: 212cb1612ca1408478234af45ae04968, type: 3}
+  cambio_dir: {fileID: 0}
+  dash: {fileID: 0}
+  salto: {fileID: 0}
+  run: {fileID: 0}
+  Gameover: {fileID: 0}
+  Gameplay: {fileID: 0}
+  Menu: {fileID: 0}
 --- !u!4 &1832788191
 Transform:
   m_ObjectHideFlags: 0

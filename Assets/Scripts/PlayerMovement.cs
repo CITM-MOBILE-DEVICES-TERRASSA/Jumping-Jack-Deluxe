@@ -34,13 +34,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem dash;
     [SerializeField] private ParticleSystem run;
 
-    //private SoundManager sound;
+    private SoundManager sound;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
-        //sound = FindObjectOfType<SoundManager>();
+        sound = FindObjectOfType<SoundManager>();
     }
 
     void Update()
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
                 return false;
             }
         }
-        //sound.GameoverSound();
+        //sound.ElectricDeadSound();
         // Cambiar este return de false a true si quereis que el player se muera al estar quieto, y volved a ponedlo en false si quereis que no se muera
         return true;
     }
