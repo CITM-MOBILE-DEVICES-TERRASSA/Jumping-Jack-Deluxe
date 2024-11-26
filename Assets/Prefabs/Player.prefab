@@ -343,9 +343,9 @@ MonoBehaviour:
   spriteTransform: {fileID: 5122751235266106341}
   dash: {fileID: 7484872043066952036}
   run: {fileID: 6100813424613771795}
-  runSound: {fileID: 0}
-  jumpSound: {fileID: 0}
-  slideSound: {fileID: 0}
+  runSound: {fileID: 713284201025376032}
+  jumpSound: {fileID: 7527802896922861894}
+  slideSound: {fileID: 159753819278873595}
 --- !u!95 &5502957283067902052
 Animator:
   serializedVersion: 5
