@@ -9894,7 +9894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   derecha: {fileID: 7379018221429476754}
   izquierda: {fileID: 7749821082325089099}
-  slideSound: {fileID: 0}
+  slideSound: {fileID: 3975862776061504642}
 --- !u!50 &9133835597710113995
 Rigidbody2D:
   serializedVersion: 4
