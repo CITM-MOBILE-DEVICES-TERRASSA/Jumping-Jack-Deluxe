@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem dash;
     [SerializeField] private ParticleSystem run;
 
-    // Sonidos asignables desde el editor
     public AudioSource runSound;
     public AudioSource jumpSound;
     public AudioSource slideSound;
@@ -78,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
         Animator animator = GetComponent<Animator>();
         animator.SetBool("IsGrounded", isGrounded);
 
-        // Reproducir el sonido de correr si está corriendo en el suelo
         if (isGrounded && !runSound.isPlaying && rb.velocity.x != 0)
         {
             runSound.Play();
@@ -137,7 +135,6 @@ public class PlayerMovement : MonoBehaviour
             Animator animator = GetComponent<Animator>();
             animator.SetTrigger("Jump");
 
-            // Reproducir el sonido de salto
             jumpSound.Play();
         }
     }
@@ -146,7 +143,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded && !isSliding)
         {
-            // Reproducir el sonido de deslizarse
             slideSound.Play();
 
             StartCoroutine(SlideCoroutine());
