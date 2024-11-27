@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
                 return false;
             }
         }
-        return false;
+        return true;
     }
 
     public void ChangeDirection()
