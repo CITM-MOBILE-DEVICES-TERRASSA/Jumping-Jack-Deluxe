@@ -1,0 +1,16 @@
+{
+    "name": "MenuJack",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4ea8e5809910a624eba085091d736401"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
