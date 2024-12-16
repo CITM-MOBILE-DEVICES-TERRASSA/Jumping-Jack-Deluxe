@@ -57,7 +57,16 @@ EditorBuildSettings:
     path: Assets/Vacaciones/Scenes/SplashScreen.unity
     guid: d1d987bb17a04b74ebab85ff495e6590
   - enabled: 1
-    path: Assets/Color Magic/Scenes/Meta.unity
+    path: Assets/Fiki/Scenes/Fiki Scenes/RewardScreen.unity
+    guid: 16c9f69fbc929a94fbcd6c60a5c7dc34
+  - enabled: 1
+    path: Assets/Fiki/Scenes/Fiki Scenes/Lobby_Fiki.unity
+    guid: 1e411faee519213458cb072280f66dda
+  - enabled: 1
+    path: Assets/Fiki/Scenes/Fiki Scenes/Minigame.unity
+    guid: bfb163533a608f24eb77d69ca3f6efcf
+  - enabled: 1
+    path: Assets/Color Magic/Scenes/Meta_ColorsMagic.unity
     guid: f5d504dd112d1f647bb8cf0f4d6f155b
   - enabled: 1
     path: Assets/Color Magic/Scenes/GameP.unity
