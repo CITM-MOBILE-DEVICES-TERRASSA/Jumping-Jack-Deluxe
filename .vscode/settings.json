@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Jumping-Jack.sln"
+    "dotnet.defaultSolution": "Jumping-Jack-Deluxe.sln"
 }
