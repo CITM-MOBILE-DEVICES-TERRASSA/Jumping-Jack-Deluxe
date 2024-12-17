@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
@@ -18,5 +19,15 @@ public class RewardManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PlayAgainButton()
+    {
+        SceneManager.LoadScene("Minigame");
+    }
+
+    public void ReturnToMenuButton()
+    {
+        LevelTransitionController.instance.StartTransition(9, 2);
     }
 }

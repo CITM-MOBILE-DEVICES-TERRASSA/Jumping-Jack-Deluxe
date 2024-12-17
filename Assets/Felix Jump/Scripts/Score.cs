@@ -81,7 +81,7 @@ public class Score : MonoBehaviour
                 if (autumnScore > maxAutumnScore)
                 {
                     maxAutumnScore = autumnScore;
-                    //PlayerPrefs.SetInt("MaxAutumnScore", maxAutumnScore);
+                    PlayerPrefs.SetInt("MaxAutumnScore", maxAutumnScore);
                     maxScoreUpdated = true;
                 }
                 break;
@@ -90,8 +90,7 @@ public class Score : MonoBehaviour
                 if (halloweenScore > maxHalloweenScore)
                 {
                     maxHalloweenScore = halloweenScore;
-                    
-                    //PlayerPrefs.SetInt("MaxHalloweenScore", maxHalloweenScore);
+                    PlayerPrefs.SetInt("MaxHalloweenScore", maxHalloweenScore);
                     maxScoreUpdated = true;
                 }
                 break;
@@ -100,7 +99,7 @@ public class Score : MonoBehaviour
                 if (springScore > maxSpringScore)
                 {
                     maxSpringScore = springScore;
-                    //PlayerPrefs.SetInt("MaxSpringScore", maxSpringScore);
+                    PlayerPrefs.SetInt("MaxSpringScore", maxSpringScore);
                     maxScoreUpdated = true;
                 }
                 break;
@@ -109,7 +108,7 @@ public class Score : MonoBehaviour
                 if (winterScore > maxWinterScore)
                 {
                     maxWinterScore = winterScore;
-                    //PlayerPrefs.SetInt("MaxWinterScore", maxWinterScore);
+                    PlayerPrefs.SetInt("MaxWinterScore", maxWinterScore);
                     maxScoreUpdated = true;
                 }
                 break;
@@ -118,7 +117,7 @@ public class Score : MonoBehaviour
                 if (summerScore > maxSummerScore)
                 {
                     maxSummerScore = summerScore;
-                    //PlayerPrefs.SetInt("MaxSummerScore", maxSummerScore);
+                    PlayerPrefs.SetInt("MaxSummerScore", maxSummerScore);
                     maxScoreUpdated = true;
                 }
                 break;
@@ -130,9 +129,7 @@ public class Score : MonoBehaviour
             UpdateMaxScoreTexts();
         }
 
-        //PlayerPrefs.Save();
-
-        ScoreManager.instance.SetScore(value);
+        PlayerPrefs.Save();
     }
 
 
@@ -240,6 +237,15 @@ public class Score : MonoBehaviour
     {
         maxTotalScore = maxAutumnScore + maxHalloweenScore + maxSpringScore + maxWinterScore + maxSummerScore;
         PlayerPrefs.SetInt("MaxTotalScore", maxTotalScore);
+
+        if (GeneralScore.Instance != null)
+        {
+            GeneralScore.Instance.UpdateOtherGameScore(maxTotalScore);
+        }
+        else
+        {
+            Debug.LogError("GeneralScore.Instance is null. Cannot update other game score.");
+        }
     }
 
     public int GetScore(string levelName)

@@ -11,7 +11,12 @@ public class LobbyScreen : MonoBehaviour
 
     private void Start()
     {
-        totalScore = PlayerPrefs.GetInt("totalScore", 0) + PlayerPrefs.GetInt("MaxTotalGame2", 0);
+        totalScore = PlayerPrefs.GetInt("totalScore", 0) + /* Jumping Jack */
+        PlayerPrefs.GetInt("MaxTotalGame2", 0) + /* Vacaciones */
+        PlayerPrefs.GetInt("Score", 0) + /* Colors Magic */ 
+        (PlayerPrefs.GetInt("MaxAutumnScore", 0) + PlayerPrefs.GetInt("MaxHalloweenScore", 0) + PlayerPrefs.GetInt("MaxSpringScore", 0) + PlayerPrefs.GetInt("MaxWinterScore", 0) + PlayerPrefs.GetInt("MaxSummerScore", 0)); /* Felix Jump*/ 
+        //PlayerPrefs /* Fiki Jump */
+
         UpdateScoreDisplay();
     }
 
@@ -24,5 +29,6 @@ public class LobbyScreen : MonoBehaviour
     {
         scoreText.text = "TOTAL SCORE: " + totalScore;
     }
+
 
 }

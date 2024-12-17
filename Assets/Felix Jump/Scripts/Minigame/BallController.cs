@@ -93,13 +93,13 @@ public class BallController : MonoBehaviour
                 {
                     int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
 
-                    levelSelector.availableLevels[currentLevelIndex - 3] = true;
-                    Debug.Log($"Nivel {currentLevelIndex - 3} desbloqueado.");
+                    levelSelector.availableLevels[currentLevelIndex - 23] = true;
+                    Debug.Log($"Nivel {currentLevelIndex - 23} desbloqueado.");
 
                 }
                 else
                 {
-                    Debug.LogWarning("No se encontró un LevelSelector.");
+                    Debug.LogWarning("No se encontrï¿½ un LevelSelector.");
                 }
 
                 bonusScoreAdded = true;
@@ -107,7 +107,7 @@ public class BallController : MonoBehaviour
         }
     }
 
-    // Método para reproducir un sonido aleatorio
+    // Mï¿½todo para reproducir un sonido aleatorio
     private void PlayRandomJumpSound()
     {
         int randomIndex = Random.Range(0, 3);

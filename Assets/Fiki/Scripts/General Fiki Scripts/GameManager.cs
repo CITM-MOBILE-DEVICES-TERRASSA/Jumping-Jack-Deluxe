@@ -43,54 +43,46 @@ public class Manager : MonoBehaviour
     public void PauseisActive()
     {
         pauseCanvas.SetActive(true);
+        Time.timeScale = 0f;
         isPaused = true;
-        Time.timeScale = 0f;        
     }
 
     public void PauseisNotActive()
     {
         AudioManager.instance.PlaySFX(atrasFx);
         pauseCanvas.SetActive(false);
+        Time.timeScale = 1f;
         isPaused = false;
-        Time.timeScale = 1f;        
     }
     public void LevelCompleted()
     {
         Save();
-        LevelTransitionController.instance.StartTransition(14,2);
+        LevelTransitionController.instance.StartTransition(11,2);
     }
     public void LevelSelectorButton()
     {
         Time.timeScale = 1;
-        LevelTransitionController.instance.StartTransition(15, 2);
+        LevelTransitionController.instance.StartTransition(9, 2);
     }
     public void Save()
     {
         Debug.Log("GAME SAVED");
-        PlayerPrefs.SetInt("HighScore_Fiki", maxscore);
-        PlayerPrefs.SetInt("Score_Fiki", score);
-        PlayerPrefs.SetInt("CurrentLevel_Fiki", currentLevel);
-        PlayerPrefs.SetInt("Lives_Fiki", lives);
+        PlayerPrefs.SetInt("HighScore", maxscore);
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.SetInt("CurrentLevel", currentLevel);
+        PlayerPrefs.SetInt("Lives", lives);
     }
     public void Load()
     {
         Debug.Log("GAME LOAD");
-        maxscore = PlayerPrefs.GetInt("HighScore_Fiki", 0);
-        score = PlayerPrefs.GetInt("Score_Fiki", 0);
-        currentLevel = PlayerPrefs.GetInt("CurrentLevel_Fiki", 1);
-        lives = PlayerPrefs.GetInt("Lives_Fiki", 0);
+        maxscore = PlayerPrefs.GetInt("HighScore", 0);
+        score = PlayerPrefs.GetInt("Score", 0);
+        currentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
+        lives = PlayerPrefs.GetInt("Lives", 0);
 
-        Debug.Log("HighScore_Fiki " + maxscore);
-        Debug.Log("Score_Fiki " + score);
-        Debug.Log("Lives_Fiki " + lives);
-        Debug.Log("Level_Fiki " + currentLevel);
+        Debug.Log("HighScore " + maxscore);
+        Debug.Log("Score " + score);
+        Debug.Log("Lives " + lives);
+        Debug.Log("Level " + currentLevel);
     }
-
-    public void GoToMenu()
-    {
-        Time.timeScale = 1;
-        Save(); // revisqar com posar player`perfs o q 
-        SceneManager.LoadScene("Lobby");
-    }
-
 }

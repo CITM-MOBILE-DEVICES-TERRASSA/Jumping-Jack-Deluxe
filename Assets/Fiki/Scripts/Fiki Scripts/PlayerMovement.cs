@@ -231,7 +231,7 @@ private void OnTriggerEnter2D(Collider2D collision)
         winScreen.SetActive(true);
         AudioManager.instance.PlaySFX(winScreenFx);
         Manager.instance.hasPrice = false;
-        LevelTransitionController.instance.StartTransition(14, 2);
+        LevelTransitionController.instance.StartTransition(4, 2);
     }
 
     private void Lose()
@@ -239,7 +239,7 @@ private void OnTriggerEnter2D(Collider2D collision)
         Debug.Log("You lost");
         gameOverScreen.SetActive(true);
         AudioManager.instance.PlaySFX(gameOverScreenFx);
-        LevelTransitionController.instance.StartTransition(14, 2);
+        LevelTransitionController.instance.StartTransition(4, 2);
         Manager.instance.lives = 3;
         gridPosition = tilemap.WorldToCell(transform.position);
         AlignToGrid();
