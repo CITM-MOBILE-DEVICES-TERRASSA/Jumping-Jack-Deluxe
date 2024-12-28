@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,9 +23,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float slideYOffset = 0.5f;
 
     [Header("Dead")]
+    public Color screenDieTint = Color.red;
     public float stopingTime = 0.5f;
     private float stopingCurrentTime = 0f;
     private float lastXPosition;
+    [SerializeField] private Volume globalVolume;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -51,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        
         HandleMovement();
         HandleSlide();
         HandleStopingDead();
@@ -61,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     private void HandleMovement()
     {
         if (isSliding) return;
+        if (isDead) return;
 
         if (IsGrounded) hasDoubleJumped = false;
         rb.velocity = new Vector2(moveSpeed * GetDirection(), rb.velocity.y);
@@ -69,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     private void HandleSlide()
     {
         if (!isSliding) return;
+        if (isDead) return;
 
         slideTimeLeft -= Time.deltaTime;
         float slideProgress = 1 - (slideTimeLeft / slideDuration);
@@ -87,15 +94,31 @@ public class PlayerMovement : MonoBehaviour
         {
             lastXPosition = transform.position.x;
             stopingCurrentTime = 0f;
+
+            if (globalVolume.profile.TryGet<ColorAdjustments>(out ColorAdjustments colorAdjustments))
+            {
+                colorAdjustments.postExposure.value = Mathf.Lerp(colorAdjustments.postExposure.value, 0, Time.deltaTime * 4);
+                colorAdjustments.colorFilter.value = Color.Lerp(colorAdjustments.colorFilter.value, Color.white, Time.deltaTime * 4);
+            }
+
         }
         else
         {
+            if (globalVolume.profile.TryGet<ColorAdjustments>(out ColorAdjustments colorAdjustments))
+            {
+                colorAdjustments.postExposure.value = Mathf.Lerp(colorAdjustments.postExposure.value, -10, Time.deltaTime);
+                colorAdjustments.colorFilter.value = Color.Lerp(colorAdjustments.colorFilter.value, screenDieTint, Time.deltaTime);
+            }
             stopingCurrentTime += Time.deltaTime;
+
             if(stopingCurrentTime > stopingTime)
             {
                 Die();
             }
         }
+
+       
+
     }
 
 
@@ -113,12 +136,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        if (isDead) return;
         GetComponent<Animator>().SetTrigger("Jump");
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private void DoubleJump()
     {
+        if (isDead) return;
         rb.velocity = new Vector2(rb.velocity.x, 0f);
         Jump();
         hasDoubleJumped = true;
@@ -165,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
+        if (isDead) return;
         isFacingRight = !isFacingRight;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         FlipChildSprites();
@@ -190,6 +216,7 @@ public class PlayerMovement : MonoBehaviour
         if (isDead) return;
         GetComponent<Animator>().Play("player-Die");
         isDead = true;
+        rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
     private void OnDrawGizmos()
