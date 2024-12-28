@@ -20,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float slideCooldown = 1f;
     [SerializeField] private float slideYOffset = 0.5f;
 
+    [Header("Dead")]
+    public float stopingTime = 0.5f;
+    private float stopingCurrentTime = 0f;
+    private float lastXPosition;
+
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Vector3 originalScale;
@@ -30,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     private bool canSlide = true;
     private float slideTimeLeft;
     private float currentSlideSpeed;
+
+    private bool isDead = false;
 
     public bool IsFacingRight => isFacingRight;
     public bool IsInAir => !IsGrounded;
@@ -46,6 +53,9 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovement();
         HandleSlide();
+        HandleStopingDead();
+
+        GetComponent<Animator>().SetBool("IsGrounded", IsGrounded);
     }
 
     private void HandleMovement()
@@ -68,6 +78,27 @@ public class PlayerMovement : MonoBehaviour
         if (slideTimeLeft <= 0) EndSlide();
     }
 
+
+    private void HandleStopingDead()
+    {
+        float difference = lastXPosition - transform.position.x;
+
+        if (Mathf.Abs(difference) > 0.0001)
+        {
+            lastXPosition = transform.position.x;
+            stopingCurrentTime = 0f;
+        }
+        else
+        {
+            stopingCurrentTime += Time.deltaTime;
+            if(stopingCurrentTime > stopingTime)
+            {
+                Die();
+            }
+        }
+    }
+
+
     public void OnJumpButtonPressed()
     {
         if (IsGrounded)
@@ -82,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        GetComponent<Animator>().SetTrigger("Jump");
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
@@ -127,7 +159,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float GetDirection()
     {
-        return isFacingRight ? 1f : -1f;
+        if(!isDead) return isFacingRight ? 1f : -1f;
+        return 0f;
     }
 
     private void Flip()
@@ -152,12 +185,35 @@ public class PlayerMovement : MonoBehaviour
         canSlide = true;
     }
 
+    private void Die()
+    {
+        if (isDead) return;
+        GetComponent<Animator>().Play("player-Die");
+        isDead = true;
+    }
+
     private void OnDrawGizmos()
     {
         if (groundCheck != null)
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Trampa"))
+        {
+            Die();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Trampa"))
+        {
+            Die();
         }
     }
 }
