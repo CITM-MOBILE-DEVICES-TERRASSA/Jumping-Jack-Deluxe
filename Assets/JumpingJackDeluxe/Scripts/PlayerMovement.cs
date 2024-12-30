@@ -234,6 +234,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Die();
         }
+        if (collision.CompareTag("Lighting"))
+        {
+            hasDoubleJumped = false;
+            collision.gameObject.SetActive(false);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
