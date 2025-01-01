@@ -98,4 +98,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Felix Jump/Scenes/Felix Scenes/GameLevels/WinterLevel.unity
     guid: ba0f7b36b86ea64429ab23b09ea24141
+  - enabled: 1
+    path: Assets/JumpingJackDeluxe/Scenes/Level1JJD.unity
+    guid: 4ea0612d78c20644b8845770dffc3ad3
+  - enabled: 1
+    path: Assets/JumpingJackDeluxe/Scenes/Level2JJD.unity
+    guid: e4fbacb3ae4d5ed46a60f1b84ba35b6c
+  - enabled: 1
+    path: Assets/JumpingJackDeluxe/Scenes/Level3JJD.unity
+    guid: 0c30e44abf06f304ebb3b0fed7eac03e
+  - enabled: 1
+    path: Assets/JumpingJackDeluxe/Scenes/Level4JJD.unity
+    guid: b4c21db2df750ec40817385e7cee7eda
+  - enabled: 1
+    path: Assets/JumpingJackDeluxe/Scenes/Level5JJD.unity
+    guid: 485a92b5f78032748aaf04f8e220be22
+  - enabled: 1
+    path: Assets/JumpingJackDeluxe/Scenes/LevelSelectorJJD.unity
+    guid: 0363fac263f58d3458ffd1a042a53e51
   m_configObjects: {}
