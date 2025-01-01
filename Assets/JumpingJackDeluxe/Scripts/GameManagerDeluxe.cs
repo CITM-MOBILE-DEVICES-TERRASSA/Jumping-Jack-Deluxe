@@ -5,10 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerDeluxe : MonoBehaviour
 {
+
+    public static GameManagerDeluxe instance;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     // Update is called once per frame
@@ -35,6 +45,7 @@ public class GameManagerDeluxe : MonoBehaviour
         }
     }
 
+
     
 
     public void RestartGame()
@@ -54,6 +65,4 @@ public class GameManagerDeluxe : MonoBehaviour
         SceneManager.LoadScene("LevelSelectorJJD");
         Time.timeScale = 1;
     }
-
-
 }

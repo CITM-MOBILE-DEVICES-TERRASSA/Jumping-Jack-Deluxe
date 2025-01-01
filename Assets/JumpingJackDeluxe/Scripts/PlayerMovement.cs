@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     private float lastXPosition;
     [SerializeField] private Volume globalVolume;
 
+    [Header("Otros")]
+    public Canvas gameOverCanvas;
+
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Vector3 originalScale;
@@ -177,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 newPosition = transform.position;
         newPosition.y += isStarting ? -offset : offset;
         transform.position = newPosition;
-        transform.localScale = new Vector3(transform.localScale.x, isStarting ? 1f : 2f, transform.localScale.z);
+        transform.localScale = new Vector3(transform.localScale.x, isStarting ? 0.5f : 1f, transform.localScale.z);
     }
 
     public void OnFlipButtonPressed() => Flip();
@@ -217,6 +220,8 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Animator>().Play("player-Die");
         isDead = true;
         rb.velocity = new Vector2(0, rb.velocity.y);
+        gameOverCanvas.gameObject.SetActive(true);
+
     }
 
     private void OnDrawGizmos()
