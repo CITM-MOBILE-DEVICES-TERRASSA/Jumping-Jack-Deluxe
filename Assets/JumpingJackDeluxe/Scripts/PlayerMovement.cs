@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Otros")]
     public Canvas gameOverCanvas;
+    public Material spriteMaterial;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -62,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         HandleMovement();
         HandleSlide();
         HandleStopingDead();
+        UpdateOutlineColor();
 
         GetComponent<Animator>().SetBool("IsGrounded", IsGrounded);
     }
@@ -252,5 +254,19 @@ public class PlayerMovement : MonoBehaviour
         {
             Die();
         }
+    }
+
+    void UpdateOutlineColor()
+    {
+        Color outlineColor = Color.clear;
+        if (IsGrounded)
+        {
+            outlineColor = Color.blue;
+        }
+        else if (canDoubleJump && !hasDoubleJumped)
+        {
+            outlineColor = Color.yellow;
+        }
+        spriteMaterial.SetColor("_OutlineColor", outlineColor);
     }
 }
