@@ -7,6 +7,8 @@ public class GameManagerDeluxe : MonoBehaviour
 {
 
     public static GameManagerDeluxe instance;
+    private string[] levelSceneNames = new string[5] { "Level1JJD", "Level2JJD", "Level3JJD", "Level4JJD", "Level5JJD" };
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +35,14 @@ public class GameManagerDeluxe : MonoBehaviour
         {
             // Pausar el juego
             Time.timeScale = 0;
-            // Opcional: Mostrar un menú de pausa o interfaz
+            // Opcional: Mostrar un menï¿½ de pausa o interfaz
             Debug.Log("Juego pausado");
         }
         else
         {
             // Reanudar el juego
             Time.timeScale = 1;
-            // Opcional: Ocultar el menú de pausa
+            // Opcional: Ocultar el menï¿½ de pausa
             Debug.Log("Juego reanudado");
         }
     }
@@ -54,7 +56,7 @@ public class GameManagerDeluxe : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
 
-        // Opcional: Si usas Time.timeScale, asegúrate de restablecerlo
+        // Opcional: Si usas Time.timeScale, asegï¿½rate de restablecerlo
         Time.timeScale = 1;
 
         Debug.Log("Juego reiniciado");
@@ -64,5 +66,18 @@ public class GameManagerDeluxe : MonoBehaviour
     {
         SceneManager.LoadScene("LevelSelectorJJD");
         Time.timeScale = 1;
+    }
+
+    public void LoadLevel(int levelIndex)
+    {
+        if (levelIndex >= 0 && levelIndex < levelSceneNames.Length)
+        {
+            SceneManager.LoadScene(levelSceneNames[levelIndex]);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            Debug.LogError("Invalid level index!");
+        }
     }
 }
