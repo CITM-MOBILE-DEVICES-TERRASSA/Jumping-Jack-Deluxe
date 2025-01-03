@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: JumpOutlineShader
-  m_Shader: {fileID: 4800000, guid: d67b2d91e219f7448aa0e945f3a8a6bf, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4e8ed993142b2874089abe00083f3ccd, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,7 +29,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _OutlineThickness: 1
+    - _OutlineThickness: 5.8856297
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 1, a: 1}

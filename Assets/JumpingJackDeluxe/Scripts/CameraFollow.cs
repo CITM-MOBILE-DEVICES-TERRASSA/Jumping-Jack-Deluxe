@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
+    public Material playerMaterial;
+
     public Transform target;
     public Vector3 offset;
     public float smoothTime = 0.3f;
@@ -35,5 +37,6 @@ public class CameraFollow : MonoBehaviour {
         // Camera size adjustment
         float targetSize = playerMovement.IsInAir ? jumpSize : normalSize;
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetSize, sizeChangeSpeed * Time.deltaTime);
+        playerMaterial.SetFloat("_OutlineThickness", Mathf.Lerp(cam.orthographicSize, targetSize+2, sizeChangeSpeed * Time.deltaTime));
     }
 }
