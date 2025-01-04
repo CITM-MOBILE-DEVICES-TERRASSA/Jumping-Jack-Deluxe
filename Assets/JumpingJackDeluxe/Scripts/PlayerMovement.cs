@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using Unity.VisualScripting;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Otros")]
     public Canvas gameOverCanvas;
     public Material spriteMaterial;
+    public ParticleSystem dust;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -142,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         if (isDead) return;
+        CreateDust();
         GetComponent<Animator>().SetTrigger("Jump");
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
@@ -196,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
     private void Flip()
     {
         if (isDead) return;
+        CreateDust();
         isFacingRight = !isFacingRight;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         FlipChildSprites();
@@ -268,5 +272,10 @@ public class PlayerMovement : MonoBehaviour
             outlineColor = Color.yellow;
         }
         spriteMaterial.SetColor("_OutlineColor", outlineColor);
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }
