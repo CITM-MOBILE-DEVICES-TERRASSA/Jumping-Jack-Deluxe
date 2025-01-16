@@ -9,7 +9,6 @@ public class GameManagerDeluxe : MonoBehaviour
     public static GameManagerDeluxe instance;
     private string[] levelSceneNames = new string[5] { "Level1JJD", "Level2JJD", "Level3JJD", "Level4JJD", "Level5JJD" };
 
-
     // Start is called before the first frame update
     void Start()
     {

@@ -30,6 +30,14 @@ public class PlayerMovement : MonoBehaviour
     private float lastXPosition;
     [SerializeField] private Volume globalVolume;
 
+    [Header("Audios")]
+    public AudioSource runSound;
+    public AudioSource jumpSound;
+    public AudioSource doubleJumpSound;
+    public AudioSource slideSound;
+    public AudioSource changeDirSound;
+    public AudioSource dieSound;
+
     [Header("Otros")]
     public Canvas gameOverCanvas;
     public Material spriteMaterial;
@@ -77,6 +85,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (IsGrounded) hasDoubleJumped = false;
         rb.velocity = new Vector2(moveSpeed * GetDirection(), rb.velocity.y);
+
+        if (IsGrounded && !runSound.isPlaying && rb.velocity.x != 0 && !isDead)
+        {
+            runSound.Play();
+        }
+        else if (!IsGrounded && runSound.isPlaying)
+        {
+            runSound.Stop();
+        }
     }
 
     private void HandleSlide()
@@ -144,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         if (isDead) return;
+        jumpSound.Play(); 
         CreateDust();
         GetComponent<Animator>().SetTrigger("Jump");
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -152,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
     private void DoubleJump()
     {
         if (isDead) return;
+        doubleJumpSound.Play();
         rb.velocity = new Vector2(rb.velocity.x, 0f);
         Jump();
         hasDoubleJumped = true;
@@ -168,7 +187,9 @@ public class PlayerMovement : MonoBehaviour
         canSlide = false;
         slideTimeLeft = slideDuration;
         currentSlideSpeed = slideSpeed;
-        
+
+        slideSound.Play();
+
         rb.velocity = new Vector2(slideSpeed * GetDirection(), rb.velocity.y);
         UpdatePosition(slideYOffset, true);
         StartCoroutine(SlideCooldown());
@@ -198,6 +219,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
+        changeDirSound.Play();
         if (isDead) return;
         CreateDust();
         isFacingRight = !isFacingRight;
@@ -225,6 +247,8 @@ public class PlayerMovement : MonoBehaviour
         if (isDead) return;
         GetComponent<Animator>().Play("player-Die");
         isDead = true;
+        runSound.Stop();
+        dieSound.Play();
         rb.velocity = new Vector2(0, rb.velocity.y);
         gameOverCanvas.gameObject.SetActive(true);
 
