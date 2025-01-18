@@ -32585,7 +32585,7 @@ PrefabInstance:
     - target: {fileID: 8621723020958681444, guid: 5239a53bb55fc5946bb35a6633efdc0b, type: 3}
       propertyPath: winScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 802184185}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
