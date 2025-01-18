@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource slideSound;
     public AudioSource changeDirSound;
     public AudioSource dieSound;
+    public AudioSource relampagoSound;
 
     [Header("Otros")]
     public Canvas gameOverCanvas;
@@ -271,6 +272,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.CompareTag("Lighting"))
         {
+            PlaySoundRelampago();
             hasDoubleJumped = false;
             collision.gameObject.SetActive(false);
         }
@@ -283,7 +285,10 @@ public class PlayerMovement : MonoBehaviour
             Die();
         }
     }
-
+    void PlaySoundRelampago()
+    {
+        relampagoSound.Play();
+    }
     void UpdateOutlineColor()
     {
         Color outlineColor = Color.clear;
