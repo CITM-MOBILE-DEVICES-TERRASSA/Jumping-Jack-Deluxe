@@ -122,29 +122,5 @@ Correr, esquivar obstáculos y completar niveles.
 - [Botones e iconos](https://crusenho.itch.io/complete-ui-essential-pack)  
 
 ---
-
-## Actualización Entrega Final  
-
-### Mejoras en la Navegación  
-- Ajustar el reescalado de pantallas para distintos dispositivos.  
-- Implementar correctamente el menú de pausa.  
-
-### Mejoras en el Gameplay  
-- Corregir colisiones de paredes y plataformas.  
-- Rediseñar el primer nivel como tutorial.  
-- Ajustar la cámara para mejorar la visibilidad de los obstáculos.  
-
-### Mejoras en el Dressing  
-- Vestir todos los niveles.  
-- Mejorar la música y corregir errores de audio tras el Game Over.  
-
-### Mejoras en el Código  
-- Optimizar código eliminando dependencias innecesarias y funcionalidades obsoletas.  
-- Reducir el tamaño de las clases para mejorar la legibilidad y minimizar errores.  
-
-### Nueva Mecánica  
-- Implementar esferas que recarguen el segundo salto para realizar un tercer salto.  
-
----  
 **South West Studio**  
 ¡Gracias por jugar Jumping Jack!  
